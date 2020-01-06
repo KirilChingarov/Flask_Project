@@ -1,0 +1,29 @@
+h1{
+	text-align: center;
+	color: #ffffff;
+
+}
+.container{
+	clear: both;
+	/*background-color: #ffffff;*/
+	text-align: right;
+	width: 
+	height: 500px;
+	margin-top: 200px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	max-width: 250px;
+}
+.container input{
+	clear: both;
+	height: 30px;
+	margin-bottom: 20px;
+	opacity: 0.1;
+	border-radius: 5px;
+}
+.container input [type=password]{
+	font-size: 10px;
+}
+
+
