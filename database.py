@@ -8,8 +8,7 @@ conn.cursor().execute('''
 CREATE TABLE IF NOT EXISTS users
 	(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	FirstName TEXT,
-	LastName TEXT,
+	Username TEXT,
 	Email TEXT,
 	Password TEXT
 	)

@@ -3,18 +3,17 @@ import hashlib
 from database import DB
 
 class User:
-	def __init__(self, first_name, last_name, email, password):
-		self.first_name = first_name
-		self.last_name = last_name
+	def __init__(self, username, email, password):
+		self.username = username
 		self.email = email
 		self.password = password
 	
 	def create(self):
 		with DB() as db:
-			values = (self.first_name ,self.last_name ,self.email ,self.password)
+			values = (self.username,self.email ,self.password)
 			db.execute('''
-				INSERT INTO users (FirstName, LastName, Email, Password)
-				VALUES(?, ?, ?, ?)''', values)
+				INSERT INTO users (Username, Email, Password)
+				VALUES(?, ?, ?)''', values)
 			return self
 	
 	@staticmethod

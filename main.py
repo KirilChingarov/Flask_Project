@@ -13,13 +13,12 @@ def home():
 @app.route("/register", methods=['GET', 'POST'])
 def sing_in():
 	if request.method == 'GET':
-		return render_template("registerForm/input.html")
+		return render_template("register.html")
 	elif request.method == 'POST':
 		values = (
-			request.form['firstname'],
-			request.form['lastname'],
-			request.form['email'],
-			User.hash_password(request.form['password1'])
+			request.form['Username'],
+			request.form['E-Mail'],
+			User.hash_password(request.form['Password'])
 		)
 		User(*values).create()
 		
