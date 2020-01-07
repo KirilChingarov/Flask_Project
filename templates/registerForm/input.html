@@ -6,18 +6,20 @@
 	<h1>Sign Up</h1>
 </head>
 <body background="{{url_for('static',filename='images/cool-background.png')}}">
-	<div class="container">
-		<label>First Name</label>
-		<input class="inputs" type="text" name="firstname"><br>
-		<label>Last Name</label>
-		<input class="inputs" type="text" name="lastname"><br>
-		<label>E-Mail</label>
-		<input class="inputs" type="text" name="email"><br>
-		<label>Password</label>
-		<input class="inputs" type="password" name="password1"><br>
-		<label>Confirm Password</label>
-		<input class="inputs" type="password" name="password2"><br>
-	</div>
-
+	<form action="/register" method="post">
+		<div class="container">
+			<label>First Name</label>
+			<input class="inputs" type="text" name="firstname"><br>
+			<label>Last Name</label>
+			<input class="inputs" type="text" name="lastname"><br>
+			<label>E-Mail</label>
+			<input class="inputs" type="text" name="email"><br>
+			<label>Password</label>
+			<input class="inputs" type="password" name="password1"><br>
+			<label>Confirm Password</label>
+			<input class="inputs" type="password" name="password2"><br>
+			<button class="inputs" type="submit">Submit</button>
+		</div>
+	</form>
 </body>
 </html>
