@@ -1,0 +1,76 @@
+body{
+	background-color: #717a91;
+	/*text-align: center;*/
+}
+.form-container{
+	background-color: #f7f7f7;
+	width: 30%;
+	height: 80vh;
+	min-width: 250px;
+	margin: auto;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 0.5px;
+	position: relative;
+}
+.form-title{
+	text-align: center;
+	font-size: 5vh;
+	color: #525252;
+	font-family: "BIZ UDGothic";
+	border-bottom: 2px solid #383838;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.form-inputs{
+	margin: auto;
+}
+.form-inputs input{
+	font-size: 2.2vh;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	padding-left: 1vh;
+	border-radius: 5px;
+	border-width: 1px;
+	display: flex;
+	margin: auto;
+	margin-top: 3.5vh;
+	width: 80%;
+}
+.register-button{
+	height: 10vh;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 8vh;
+}
+.register-button input:hover{
+	background-color: #488c4e;
+	transition-duration: 0.5s;
+}
+.register-button input{
+	background-color: #56a65e;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+	height: 6vh;
+	font-size: 3vh;
+	font-family: fantasy;
+	border-radius: 5px;
+	width: 80%;
+	outline: none;
+}
+input[type="button"]::-moz-focus-inner {
+   border: 0;
+}
+.sign-in{
+	text-align: center;
+	color: #fff;
+	width: 30%;
+	margin: auto;
+	font-size: 2vh;
+}
+.sign-in a{
+	color: #fff;
+	outline: none;
+}
