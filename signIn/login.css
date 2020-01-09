@@ -42,7 +42,7 @@ body{
 	margin: 1.5rem auto;
 	width: 80%;
 }
-.register-button {
+.login-button {
 	display: block;
 	padding: 0.75rem;
 	font-size: 1.5rem;
@@ -54,23 +54,23 @@ body{
 	width: 80%;
 	text-align: center;
 }
-.register-button button:hover{
+.login-button button:hover{
 	background-color: #488c4e;
 	transition-duration: 0.5s;
 }
 
-.register-button button:active,
-.register-button button:focus {
+.login-button button:active,
+.login-button button:focus {
 	outline: none;
 }
 /*input[type="button"]::-moz-focus-inner {
    border: 0;
 }*/
-.sign-in{
+.sign-up{
 	text-align: center;
 	color: #fff;
 }
-.sign-in a{
+.sign-up a{
 	color: #fff;
 	outline: none;
 }
