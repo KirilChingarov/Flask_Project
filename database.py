@@ -14,6 +14,14 @@ CREATE TABLE IF NOT EXISTS users
 	)
 ''')
 
+conn.cursor().execute('''
+CREATE TABLE IF NOT EXISTS catagories
+	(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	Catagory TEXT
+	)
+''')
+
 class DB:
 	def __enter__(self):
 		self.conn = sqlite3.connect(DB_NAME)
