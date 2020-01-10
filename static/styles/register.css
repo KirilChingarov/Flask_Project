@@ -39,7 +39,14 @@ body{
 	border-radius: 5px;
 	border-width: 1px;
 	display: block;
-	margin: 1.5rem auto;
+	margin: 0.75rem auto;
+	width: 80%;
+}
+.message {
+	color: #ff000d;
+	font-size: 0.85rem; 
+	margin: auto;
+	display: none;
 	width: 80%;
 }
 .register-button {

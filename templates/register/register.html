@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/register.css')}}"> -->
+<script type="text/javascript" src="register.js"></script>
+<link rel="stylesheet" type="text/css" href="../../static/styles/register.css">
+<head>
+	<title>Sign up</title>
+</head>
+<body>
+	<div class="page-wrapper">
+		<div class="form-container" class="w3-third">
+			<form name="register" action="/register" method="post">
+				<div class="form-title">
+					<p>Sign Up</p>
+				</div>
+				<div class="form-inputs">
+					<input type="text" name="username" placeholder="Username">
+					<p class="message" id="username">Already taken. Choose another one.</p>
+					<input type="text" name="email" placeholder="E-Mail">
+					<p class="message" id="mail">E-mail does not exist!</p>
+					<input type="Password" name="password" placeholder="Password">
+					<p class="message" id="pass">Not strong enough.</p>
+					<input type="Password" name="confirm-password" placeholder="Confirm Password">
+					<p class="message" id="pass2">Password doesn't match.</p>
+				</div>
+				<button type="button" class="register-button" onclick="Validation()">Register</button>
+			</form>
+		</div>
+		<div class="sign-in">
+			<p>Already have an account? <a href="../login/login.html">Sign in</a></p>
+		</div>
+	</div>
+</body>
+</html>
