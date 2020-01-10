@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return redirect("/register")
+	return redirect("/login")
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -16,6 +16,7 @@ def sing_in():
 		return render_template("register.html")
 	elif request.method == 'POST':
 		values = (
+			None,
 			request.form['Username'],
 			request.form['E-Mail'],
 			User.hash_password(request.form['Password'])
@@ -25,9 +26,28 @@ def sing_in():
 		return redirect("/register_success")
 
 
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+	if request.method == 'GET':
+		return render_template("login.html")
+	elif request.method == 'POST':
+		username = request.form['Username']
+		password = request.form['Password']
+		user = User.find_user(username)
+		if not user or not user.verify_password(password):
+			return redirect("/login")
+		return redirect("/login_success")
+		
+	
+
 @app.route("/register_success")
-def sign_in_sucess():
+def sign_in_success():
 	return "Sign in successful!"
+
+
+@app.route("/login_success")
+def login_success():
+	return "Log in successful!"
 
 
 if __name__ == "__main__":

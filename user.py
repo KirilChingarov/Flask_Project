@@ -3,7 +3,8 @@ import hashlib
 from database import DB
 
 class User:
-	def __init__(self, username, email, password):
+	def __init__(self, id, username, email, password):
+		self.id = id
 		self.username = username
 		self.email = email
 		self.password = password
@@ -15,6 +16,17 @@ class User:
 				INSERT INTO users (Username, Email, Password)
 				VALUES(?, ?, ?)''', values)
 			return self
+	
+	@staticmethod
+	def find_user(username):
+		if not username:
+			return None
+		with DB() as db:
+			row = db.execute(
+				'SELECT * FROM users WHERE username = ?', (username,)
+			).fetchone()
+			if row:
+				return User(*row)
 	
 	@staticmethod
 	def hash_password(password):
