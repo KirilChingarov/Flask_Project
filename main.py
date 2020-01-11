@@ -17,9 +17,9 @@ def sing_in():
 	elif request.method == 'POST':
 		values = (
 			None,
-			request.form['Username'],
-			request.form['E-Mail'],
-			User.hash_password(request.form['Password'])
+			request.form['username'],
+			request.form['email'],
+			User.hash_password(request.form['password'])
 		)
 		User(*values).create()
 		

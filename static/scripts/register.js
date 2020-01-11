@@ -25,16 +25,21 @@ function PasswordSecurity(inputText){
 }
 function PasswordMatch(str1, str2){
 	var n = str1.toString().localeCompare(str2);
-	if(n == 0){
+	if(n != 0){
 		document.getElementById("pass2").style.display = "none";
+		return true;
 	}
 	else{
 		document.getElementById("pass2").style.display = "block";	
+		return false;
 	}
 }
 function Validation(){
-	PasswordSecurity(document.register.password);
-	ValidateEmail(document.register.email);
-	PasswordMatch(document.register.password, document.register.confirmPassword);
+	if(PasswordSecurity(document.register.password) &&
+	ValidateEmail(document.register.email) &&
+	PasswordMatch(document.register.password, document.register.confirmPassword)){
+		return true;
+	}
+	return false;
 }
 
