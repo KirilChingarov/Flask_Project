@@ -1,0 +1,147 @@
+body{
+	background-color: #717a91;
+}
+.sidebar a:hover{
+	background-color: #bac4db;
+	color: #333f5c;
+}
+.sidebar a:focus{
+	outline: none;
+	border: none;
+}
+@media screen and (min-width: 400px){
+	.sidebar{
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 6rem;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		background-color: #333f5c;
+		font-size: 1rem;
+	}
+	.sidebar a{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		color: #fff;
+		height: 2.5rem;
+		width: 100%;
+	}
+	.navbar{
+		width: 90%;
+		height: 40px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		background-color: #333f5c;
+	}
+	.navbar a{
+		text-decoration: none;
+		height: 100%;
+		width: 5rem;
+		font-size: 1rem;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.search-img{
+		width: 0.75rem;
+		height: 0.75rem;
+	}
+	.search input{
+		color: #000;
+		font-size: 0.75rem;
+	}
+}
+@media screen and (min-width: 929px){
+	.sidebar{
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 12rem;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		background-color: #333f5c;
+		font-size: 2rem;
+	}
+	.sidebar a{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		color: #fff;
+		height: 5rem;
+		width: 100%;
+	}
+	.navbar{
+		width: 90%;
+		height: 50px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		background-color: #333f5c;
+	}
+	.navbar a{
+		text-decoration: none;
+		height: 100%;
+		width: 10rem;
+		font-size: 2rem;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.search-img{
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+	.search input{
+		color: #000;
+		font-size: 1.5rem;
+	}
+	.main{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: calc(100vw - 12rem);
+		height: calc(100vh - 50px);
+	}
+}
+.navbar a:focus{
+	outline: none;
+	border: none;
+}
+.navbar a:hover{
+	background-color: #bac4db;
+	color: #333f5c;
+	transition: 0.5s;
+}
+.search-img:focus{
+	outline: none;
+	border: none;
+}
+.gallery{
+	max-width: 50%;
+	display: grid;
+	max-height: 80%;
+	margin: auto;
+	/*margin-top: 10vh;*/
+	grid-template-rows: repeat(3, 2fr);
+	grid-template-columns: repeat(3, 2fr);
+	grid-gap: 2%;
+}
+.gallery img{
+	height: 100%;
+	width: 100%;
+}
