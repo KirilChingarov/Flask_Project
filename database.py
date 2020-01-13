@@ -18,7 +18,7 @@ conn.cursor().execute('''
 CREATE TABLE IF NOT EXISTS catagories
 	(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	Catagory TEXT
+	Name TEXT
 	)
 ''')
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS images
 	(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	Name TEXT,
-	Catagory TEXT
+	Catagory INTEGER
 	)
 ''')
 

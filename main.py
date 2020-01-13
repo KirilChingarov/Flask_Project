@@ -3,12 +3,23 @@ from flask import render_template, redirect, request
 
 from user import User
 from images import Image
+from catagory import Catagory
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return render_template("index.html", images=Image.all())
+	return render_template("index.html", catagories=Catagory.all(), images=Image.all())
+
+
+@app.route("/catagory")
+def get_catagory():
+	return redirect("/")
+
+
+@app.route("/catagory/<int:id>")
+def get_catagory_by_id(id):
+	return render_template("index.html", catagories=Catagory.all(), images=Image.find_by_catagory(id))
 
 
 @app.route("/register", methods=['GET', 'POST'])

@@ -7,19 +7,26 @@
 </head>
 <body>
 	<div class="navbar">
-		<div class="search">
-			<input type="text" name="search" placeholder="Search...">
-			<!-- <input  class="search-img" type="image" src="../images/search.png"> -->
-			<input  class="search-img" type="image" src="{{url_for('static', filename='images/search.png')}}">
-		</div>
+		<form name="searchBar" action="/catagory" form="POST">
+			<div class="search">
+				<input type="text" name="search" placeholder="Search...">
+				<!-- <input class="search-img" type="image" src="../images/search.png"> -->
+				<input class="search-img" type="image" src="../static/images/icons/search.png">
+			</div>
+		</form>
 		<a href="/login">Login</a>
  		<a href="/register">Register</a>
 	</div>
 	<div class="sidebar">
-		<a href="#">Category1</a>
+		<!-- <a href="#">Category1</a>
   		<a href="#">Category2</a>
   		<a href="#">Category3</a>
-  		<a href="#">Category4</a>
+  		<a href="#">Category4</a> -->
+  		{% if catagories != None %}
+	  		{% for catagory in catagories %}
+	  		<a href="/catagory/{{ catagory.id }}">{{ catagory.name }}</a>
+	  		{% endfor %}
+  		{% endif %}
   	</div>
   	<div class="main">
 	  	<div class="gallery">
@@ -32,9 +39,11 @@
 	  		<img src="../static/images/img7.jpg">
 	  		<img src="../static/images/img8.jpg">
 	  		<img src="../static/images/img9.jpg"> -->
-	  		{% for image in images %}
-	  		<img src="../static/images/{{ image.name }}">
-	  		{% endfor %}
+	  		{% if images != None %}
+		  		{% for image in images %}
+		  		<img src="../static/images/{{ image.name }}">
+		  		{% endfor %}
+		  	{% endif %}
 	  	</div>
   	</div>
 </body>

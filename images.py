@@ -15,7 +15,14 @@ class Image:
 	@staticmethod
 	def find_by_catagory(catagory):
 		with DB() as db:
-			row = db.execute('SELECT * FROM images WHERE catagory = ?', (catagory,)).fetchall()
-			if not row:
-				return Image(0, "No images find", "No catagory")
+			rows = db.execute('SELECT * FROM images WHERE catagory = ?', (catagory,)).fetchall()
+			if not rows:
+				#return Image(0,"No images found","No images in this catagory")
+				return None
 			return [Image(*row) for row in rows]
+	
+	def printInfo(self):
+		print(self.id)
+		print(self.name)
+		print(self.catagory)
+		print("-------")
