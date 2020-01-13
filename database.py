@@ -22,6 +22,15 @@ CREATE TABLE IF NOT EXISTS catagories
 	)
 ''')
 
+conn.cursor().execute('''
+CREATE TABLE IF NOT EXISTS images
+	(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	Name TEXT,
+	Catagory TEXT
+	)
+''')
+
 class DB:
 	def __enter__(self):
 		self.conn = sqlite3.connect(DB_NAME)

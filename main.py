@@ -2,12 +2,13 @@ from flask import Flask
 from flask import render_template, redirect, request
 
 from user import User
+from images import Image
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-	return redirect("/login")
+	return render_template("index.html", images=Image.all())
 
 
 @app.route("/register", methods=['GET', 'POST'])

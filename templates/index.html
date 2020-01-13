@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="../static/styles/style.css">
+<!-- <link rel="stylesheet" type="text/css" href="../static/styles/style.css"> -->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}">
 <head>
 	<title>Flask</title>
 </head>
@@ -8,10 +9,11 @@
 	<div class="navbar">
 		<div class="search">
 			<input type="text" name="search" placeholder="Search...">
-			<input  class="search-img" type="image" src="../images/search.png">
+			<!-- <input  class="search-img" type="image" src="../images/search.png"> -->
+			<input  class="search-img" type="image" src="{{url_for('static', filename='images/search.png')}}">
 		</div>
-		<a href="login.html">Login</a>
- 		<a href="register.html">Register</a>
+		<a href="/login">Login</a>
+ 		<a href="/register">Register</a>
 	</div>
 	<div class="sidebar">
 		<a href="#">Category1</a>
@@ -21,16 +23,18 @@
   	</div>
   	<div class="main">
 	  	<div class="gallery">
-	  		<img src="../images/img1.jpg">
-	  		<img src="../images/img2.jpg">
-	  		<img src="../images/img3.jpg">
-	  		<img src="../images/img4.jpg">
-	  		<img src="../images/img5.jpg">
-	  		<img src="../images/img6.jpg">
-	  		<img src="../images/img7.jpg">
-	  		<img src="../images/img8.jpg">
-	  		<img src="../images/img9.jpg">
-
+	  		<!-- <img src="../static/images/img1.jpg">
+	  		<img src="../static/images/img2.jpg">
+	  		<img src="../static/images/img3.jpg">
+	  		<img src="../static/images/img4.jpg">
+	  		<img src="../static/images/img5.jpg">
+	  		<img src="../static/images/img6.jpg">
+	  		<img src="../static/images/img7.jpg">
+	  		<img src="../static/images/img8.jpg">
+	  		<img src="../static/images/img9.jpg"> -->
+	  		{% for image in images %}
+	  		<img src="../static/images/{{ image.name }}">
+	  		{% endfor %}
 	  	</div>
   	</div>
 </body>
