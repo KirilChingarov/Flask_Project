@@ -14,7 +14,7 @@ class Catagory:
 	@staticmethod
 	def find(catagory):
 		with DB() as db:
-			row = db.execute('SELECT * FROM catagories WHERE catagory = ?', (catagory,)).fetchone()
+			row = db.execute('SELECT * FROM catagories WHERE name = ?', (catagory,)).fetchone()
 			if not row:
 				return None
 			return Catagory(*row)

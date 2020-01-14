@@ -17,7 +17,6 @@ class Image:
 		with DB() as db:
 			rows = db.execute('SELECT * FROM images WHERE catagory = ?', (catagory,)).fetchall()
 			if not rows:
-				#return Image(0,"No images found","No images in this catagory")
 				return None
 			return [Image(*row) for row in rows]
 	

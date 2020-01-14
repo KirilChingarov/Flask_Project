@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, request
+from flask import render_template, redirect, request, url_for
 
 from user import User
 from images import Image
@@ -7,14 +7,17 @@ from catagory import Catagory
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def home():
-	return render_template("index.html", catagories=Catagory.all(), images=Image.all())
-
-
-@app.route("/catagory")
-def get_catagory():
-	return redirect("/")
+	if request.method == 'GET':
+		return render_template("index.html", catagories=Catagory.all(), images=Image.all())
+	elif request.method == 'POST':
+		catagory = request.form['searchbar']
+		cat_id = Catagory.find(catagory)
+		if not cat_id:
+			return redirect("/")
+		else:
+			return redirect(url_for("get_catagory_by_id", id=cat_id.id))
 
 
 @app.route("/catagory/<int:id>")
@@ -23,7 +26,7 @@ def get_catagory_by_id(id):
 
 
 @app.route("/register", methods=['GET', 'POST'])
-def sing_in():
+def sign_in():
 	if request.method == 'GET':
 		return render_template("register.html")
 	elif request.method == 'POST':
