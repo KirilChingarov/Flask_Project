@@ -25,6 +25,12 @@ def get_catagory_by_id(id):
 	return render_template("index.html", catagories=Catagory.all(), images=Image.find_by_catagory(id))
 
 
+@app.route("/image/<int:id>")
+def get_image_by_id(id):
+	return render_template("image.html", image=Image.find_by_id(id))
+
+
+
 @app.route("/register", methods=['GET', 'POST'])
 def sign_in():
 	if request.method == 'GET':

@@ -20,6 +20,14 @@ class Image:
 				return None
 			return [Image(*row) for row in rows]
 	
+	@staticmethod
+	def find_by_id(id):
+		with DB() as db:
+			row = db.execute('SELECT * FROM images WHERE id = ?', (id,)).fetchone()
+			if not row:
+				return None
+			return Image(*row)
+	
 	def printInfo(self):
 		print(self.id)
 		print(self.name)

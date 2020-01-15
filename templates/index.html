@@ -41,7 +41,7 @@
 	  		<img src="../static/images/img9.jpg"> -->
 	  		{% if images != None %}
 		  		{% for image in images %}
-		  		<img src="../static/images/{{ image.name }}">
+		  		<a href="/image/{{ image.id }}"><img src="../static/images/{{ image.name }}"></a>
 		  		{% endfor %}
 		  	{% endif %}
 	  	</div>
