@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, request, url_for, send_file
+from flask import render_template, redirect, request, session, url_for, send_file
 
 from user import User
 from images import Image
@@ -7,10 +7,14 @@ from catagory import Catagory
 
 app = Flask(__name__)
 
+app.secret_key = '6523e58bc0eec42c31b9635d5e0dfc23b6d119b73e633bf3a5284c79bb4a1ede'
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
 	if request.method == 'GET':
-		return render_template("index.html", catagories=Catagory.all(), images=Image.all())
+		if 'username' in session:
+			return render_template("index.html", user=session['username'], catagories=Catagory.all(), images=Image.all())
+		return render_template("index.html", user=None, catagories=Catagory.all(), images=Image.all())
 	elif request.method == 'POST':
 		catagory = request.form['searchbar']
 		cat_id = Catagory.find(catagory)
@@ -42,8 +46,9 @@ def sign_in():
 			User.hash_password(request.form['password'])
 		)
 		User(*values).create()
+		session['username'] = request.form['username']
 		
-		return redirect("/register_success")
+		return redirect("/")
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -56,18 +61,15 @@ def login():
 		user = User.find_user(username)
 		if not user or not user.verify_password(password):
 			return redirect("/login")
-		return redirect("/login_success")
+		session['username'] = username
+		return redirect("/")
 		
 	
+@app.route("/logout")
+def logout():
+	session.pop('username', None)
+	return redirect("/")
 
-@app.route("/register_success")
-def sign_in_success():
-	return "Sign in successful!"
-
-
-@app.route("/login_success")
-def login_success():
-	return "Log in successful!"
 
 
 if __name__ == "__main__":
