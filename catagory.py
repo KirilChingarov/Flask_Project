@@ -5,6 +5,14 @@ class Catagory:
 		self.id = id
 		self.name = name
 	
+	def create(self):
+		with DB as db():
+			values = (self.name)
+			db.execute('''
+				INSERT INTO catagories (Name)
+				VALUES(?, ?)''', values)
+			return self
+	
 	@staticmethod
 	def all():
 		with DB() as db:
