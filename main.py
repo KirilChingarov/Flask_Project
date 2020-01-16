@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for, send_file
 
 from user import User
 from images import Image
@@ -28,7 +28,6 @@ def get_catagory_by_id(id):
 @app.route("/image/<int:id>")
 def get_image_by_id(id):
 	return render_template("image.html", image=Image.find_by_id(id))
-
 
 
 @app.route("/register", methods=['GET', 'POST'])
