@@ -1,18 +1,20 @@
 from flask import Flask
 from flask import render_template, redirect, request, session, url_for, send_file
 
-import logging
-from logging.handlers import RotatingFileHandler
+from logger import infolog, errorlog
 
 from user import User
 from images import Image
 from catagory import Catagory
 
+from datetime import datetime
+
 app = Flask(__name__)
 
 app.secret_key = '6523e58bc0eec42c31b9635d5e0dfc23b6d119b73e633bf3a5284c79bb4a1ede'
 
-logging.basicConfig(filename='logs.log', level=logging.INFO)
+
+#logging.basicConfig(filename='var/log/logs.log', filemode='w', level=logging.INFO)
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
@@ -54,6 +56,7 @@ def sign_in():
 		)
 		User(*values).create()
 		session['username'] = request.form['username']
+		infolog.info("%s registered successfully", request.form['username'])
 		
 		return redirect("/")
 
@@ -67,10 +70,10 @@ def login():
 		password = request.form['Password']
 		user = User.find_user(username)
 		if not user or not user.verify_password(password):
-			logging.error("%s failed to log in" % username)
+			errorlog.error("%s failed to log in", username)
 			return redirect("/login")
 		session['username'] = username
-		logging.info("%s logged in successfully" % username)
+		infolog.info("%s logged in successfully", username)
 		return redirect("/")
 		
 	
@@ -78,7 +81,7 @@ def login():
 def logout():
 	user = session['username']
 	session.pop('username', None)
-	logging.info("%s logged out successfully")
+	infolog.info("%s logged out successfully", user)
 	return redirect("/")
 
 

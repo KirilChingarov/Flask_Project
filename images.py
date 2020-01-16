@@ -6,14 +6,6 @@ class Image:
 		self.name = name
 		self.catagory = catagory
 	
-	def create(self):
-		with DB as db():
-			values = (self.name, self.catagory)
-			db.execute('''
-				INSERT INTO images (Name, Catagory)
-				VALUES(?, ?)''', values)
-			return self
-	
 	@staticmethod
 	def all():
 		with DB() as db:
