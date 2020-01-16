@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}">
+<!-- <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}"> -->
+<link rel="stylesheet" type="text/css" href="../static/styles/style.css">
 <head>
 	<title>Flask</title>
 </head>
@@ -12,28 +13,28 @@
 				<input class="search-img" type="image" src="../static/images/icons/search.png">
 			</div>
 		</form>
- 		{% if user == None %}
+ 		<!-- {% if user == None %} -->
 	 		<a href="/login">Login</a>
 	 		<a href="/register">Register</a>
- 		{% else %}
+ 		<!-- {% else %} -->
 	 		<p>{{ user }}</p>
 	 		<a href="/logout">Logout</a>
- 		{% endif %}
+ 		<!-- {% endif %} -->
 	</div>
 	<div class="sidebar">
-  		{% if catagories != None %}
-	  		{% for catagory in catagories %}
+  		<!-- {% if catagories != None %} -->
+	  		<!-- {% for catagory in catagories %} -->
 	  		<a href="/catagory/{{ catagory.id }}">{{ catagory.name }}</a>
-	  		{% endfor %}
-  		{% endif %}
+	  		<!-- {% endfor %} -->
+  		<!-- {% endif %} -->
   	</div>
   	<div class="main">
 	  	<div class="gallery">
-	  		{% if images != None %}
-		  		{% for image in images %}
+	  		<!-- {% if images != None %} -->
+		  		<!-- {% for image in images %} -->
 		  		<a href="/image/{{ image.id }}"><img src="../static/images/{{ image.name }}"></a>
-		  		{% endfor %}
-		  	{% endif %}
+		  		<!-- {% endfor %} -->
+		  	<!-- {% endif %} -->
 	  	</div>
   	</div>
 </body>
