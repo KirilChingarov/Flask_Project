@@ -42,8 +42,8 @@ body{
 	margin: 1.5rem auto;
 	width: 80%;
 }
-.form-inputs p{
-	display: none;
+#error{
+	display: block;
 	margin: auto;
 	width: 80%;
 	color: #d40e00;

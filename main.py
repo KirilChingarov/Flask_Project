@@ -64,14 +64,14 @@ def sign_in():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
 	if request.method == 'GET':
-		return render_template("login.html")
+		return render_template("login.html", wrong_combo=False)
 	elif request.method == 'POST':
 		username = request.form['Username']
 		password = request.form['Password']
 		user = User.find_user(username)
 		if not user or not user.verify_password(password):
 			errorlog.error("%s failed to log in", username)
-			return redirect("/login")
+			return render_template("login.html", wrong_combo=True)
 		session['username'] = username
 		infolog.info("%s logged in successfully", username)
 		return redirect(session['last_page'])
