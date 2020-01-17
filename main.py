@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, request, session, url_for, send_file
+from flask import render_template, redirect, request, session, url_for
 
 from logger import infolog, errorlog
 
@@ -7,14 +7,10 @@ from user import User
 from images import Image
 from catagory import Catagory
 
-from datetime import datetime
-
 app = Flask(__name__)
 
 app.secret_key = '6523e58bc0eec42c31b9635d5e0dfc23b6d119b73e633bf3a5284c79bb4a1ede'
 
-
-#logging.basicConfig(filename='var/log/logs.log', filemode='w', level=logging.INFO)
 
 @app.route("/", methods=['GET', 'POST'])
 def home():

@@ -1,8 +1,6 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-#infolog = logging.basicConfig(filename='var/log/info.log', filemode='w', level=logging.INFO)
-#errorlog = logging.basicConfig(filename='var/log/error.log', filemode='w', level=logging.ERROR)
 
 infolog = logging.getLogger('infolog')
 infolog.setLevel(logging.INFO)
