@@ -42,6 +42,12 @@ body{
 	margin: 1.5rem auto;
 	width: 80%;
 }
+.form-inputs p{
+	display: none;
+	margin: auto;
+	width: 80%;
+	color: #d40e00;
+}
 .login-button {
 	display: block;
 	padding: 0.75rem;
